@@ -1,0 +1,165 @@
+/* General */
+html {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+html div {
+  display: grid;
+  grid-template-areas: "header header"
+                       "nav nav"
+                       "main aside"
+                       "footer footer";
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+}
+#logo {
+  grid-area: logo;
+  width: 10rem;
+}
+header input {
+  grid-area: search;
+  height: 2rem;
+}
+header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+}
+a {
+  text-decoration:none;
+  color: black;
+}
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+nav {
+  grid-area: nav;
+}
+nav ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  padding-inline-start: 0;
+  text-align: left;  
+}
+nav ul li {
+  padding: 1rem;
+  border-bottom: 0.2rem solid transparent;
+}
+nav ul li:hover {
+  border-bottom: 0.2rem solid gray;
+  cursor: pointer;
+}
+aside {
+  background-color: lightgray;
+  grid-area: aside;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+aside ul li {
+  list-style-type: none;
+  border-left: 0.6rem solid transparent;
+  text-align: left;
+  padding-left: 1rem;
+}
+aside ul li:hover {
+  border-left: 0.2rem solid gray;
+  cursor: pointer;
+}
+main {
+  grid-area: main;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: lightgray;
+  display: flex;
+  align-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+}
+main p {
+  padding: 0.5rem;
+  width: 46%;
+  text-align: justify;
+}
+main h5 {
+  padding: 0.5rem;
+  text-align: justify;
+  width: 100%;
+}
+footer {
+  grid-area: footer;
+  padding: 1rem;
+  font-size: 0.6rem;
+}
+/* Mobile */
+@media screen and (max-width:480px) {
+  html {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+  }
+  html div {
+    display: grid;
+    grid-template-areas: "header"
+                         "nav"
+                         "main"
+                         "aside"
+                         "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 0.5rem;
+  }
+  header {
+    display: block;
+  }      
+  #logo {
+    width: 5rem;
+    float: none;
+  }
+  input {
+    width: 100%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+  }
+  nav {
+    width: 100%;
+  }
+  main p {
+    width: 100%;
+    padding: 0;
+  }
+}
+/* Tablet */
+@media screen and (min-width:481px) and (max-width: 768px) {
+  html {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+  }
+  html div {
+    display: grid;
+    grid-template-areas: "header header"
+                         "nav nav"
+                         "main main"
+                         "aside aside"
+                         "footer footer";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0.7rem;
+  }
+  #logo {
+    width: 7.5rem;
+  }
+  header input {
+    width: 6rem;
+  }
+}

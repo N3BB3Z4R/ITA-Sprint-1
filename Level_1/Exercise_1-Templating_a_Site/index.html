@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+  </head>
+  <style>
+    /* General */
+    html {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    html div {
+      display: grid;
+      grid-template-areas: "header header"
+                           "nav nav"
+                           "main aside"
+                           "footer footer";
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto;
+      gap: 1rem;
+    }
+    #logo {
+      grid-area: logo;
+      width: 10rem;
+    }
+    header input {
+      grid-area: search;
+      height: 2rem;
+    }
+    header {
+      grid-area: header;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid gray;
+    }
+    a {
+      text-decoration:none;
+      color: black;
+    }
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+    nav {
+      grid-area: nav;
+    }
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      justify-content: center;
+      padding-inline-start: 0;
+      text-align: left;  
+    }
+    nav ul li {
+      padding: 1rem;
+      border-bottom: 0.2rem solid transparent;
+    }
+    nav ul li:hover {
+      border-bottom: 0.2rem solid gray;
+      cursor: pointer;
+    }
+    aside {
+      background-color: lightgray;
+      grid-area: aside;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+    aside ul li {
+      list-style-type: none;
+      border-left: 0.6rem solid transparent;
+      text-align: left;
+      padding-left: 1rem;
+    }
+    aside ul li:hover {
+      border-left: 0.2rem solid gray;
+      cursor: pointer;
+    }
+    main {
+      grid-area: main;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background-color: lightgray;
+      display: flex;
+      align-content: space-around;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    main p {
+      padding: 0.5rem;
+      width: 46%;
+      text-align: justify;
+    }
+    main h5 {
+      padding: 0.5rem;
+      text-align: justify;
+      width: 100%;
+    }
+    footer {
+      grid-area: footer;
+      padding: 1rem;
+      font-size: 0.6rem;
+    }
+  </style>
+  <body>
+    <div>
+      <header>
+        <a href="#">
+          <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png"/>
+        </a>
+        <h1>Header Title</h1>
+        <input type="search" placeholder="Search" name="" id="search">
+      </header>      
+      <nav>
+        <ul>
+          <li><a href="#">Menu 1</a></li>
+          <li><a href="#">Menu 2</a></li>
+          <li><a href="#">Menu 3</a></li>
+        </ul>
+      </nav>
+      <main>        
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint consectetur necessitatibus, aliquid voluptas ex optio nostrum expedita molestias quos libero.
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint consectetur necessitatibus, aliquid voluptas ex optio nostrum expedita molestias quos libero.
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint consectetur necessitatibus, aliquid voluptas ex optio nostrum expedita molestias quos libero.
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint consectetur necessitatibus, aliquid voluptas ex optio nostrum expedita molestias quos libero.
+        </p>
+        <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere vel reprehenderit delectus.</h5>
+      </main>
+      <aside>
+        <ul>
+          <li><a href="#">Filtro 1</a></li>
+          <li><a href="#">Filtro 2</a></li>
+          <li><a href="#">Filtro 3</a></li>
+        </ul>
+      </aside>
+      <footer>Web Template for Ejercicio 1 · 2021 © Óscar Abad</footer>
+    </div>
+  </body>
+  </html>
