@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 
@@ -2497,3 +2498,10 @@
   </body>
 </html>
 
+=======
+### Final Result
+Travel web template made for IT Academy React Bootcamp - Sprint 1.
+
+Final result:
+![Final result](https://i.imgur.com/g4ZfEit.png)
+>>>>>>> 0ac6c40d7783239ced888ea339dff4449443e571
