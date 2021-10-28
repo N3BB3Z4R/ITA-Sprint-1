@@ -1,8 +1,23 @@
 /* General */
 :root {
   --main-accent: salmon;
+  --main-gray: gray;
   --main-clear: lightgray;
   --main-clearest: rgb(238, 238, 238);
+}
+@keyframes dancing {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(5deg); }
+  70% { transform: rotate(-8deg); }
+}
+@keyframes popping {
+  0% { transform: scale(1.25, 0.75); }
+  50% { transform: scale(1, 1); }
+  55% { transform: rotate(15deg); }
+  60% { transform: rotate(-15deg); }
+  65% { transform: rotate(15deg); }
+  70% { transform: rotate(-15deg); }
+  100% { transform: scale(1.25, 0.75); }
 }
 html {
   max-width: 1200px;
@@ -13,22 +28,29 @@ html {
 }
 html div {
   display: grid;
-  grid-template-areas: "header header header header header"
-                       "main main main main aside"
-                       "footer footer footer footer footer";
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "header header"
+                       "main main"
+                       "footer footer ";
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   gap: 0.6rem;
 }
 #logo {
   grid-area: logo;
   width: 4rem;
+  padding-left: 1.2rem;
+  transition: 100ms;
+  animation: dancing 2s infinite ease-out;
+}
+#logo:hover {
+  transform: scale(120%);
+  transition: 400ms;
 }
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   width: 100%;
-  padding: 2.5rem 4rem;
+  padding: 2.5rem 0rem;
 }
 header {
   grid-area: header;
@@ -47,9 +69,9 @@ header {
 }
 .jumbo {
   display: block;
-  width: 85%;
+  width: 90%;
   height: 7rem;
-  margin-top: 3rem;
+  margin-top: 4.5rem;
   background-color: rgba(128,128,128,15%);
 }
 h1 {
@@ -59,15 +81,18 @@ h1 {
   bottom: -0.4rem;
   text-align: center;
   position: relative;
-  color: orange;
+  color: var(--main-accent);
+  opacity: 0.6;
 }
 a {
   text-decoration:none;
   color: gray;
+  transition: 800ms;
 }
 a:hover {
   color: var(--main-accent);
   border-color: var(--main-accent);
+  transition: 200ms;
 }
 nav {
   grid-area: nav;
@@ -77,25 +102,44 @@ nav ul {
   list-style-type: none;
   justify-content:space-evenly;
   padding-inline-start: 0;
-  text-align: left;  
+  text-align: left;
+  
 }
-nav ul li {
+nav ul li a {
   padding: 1rem;
+  padding-top:1.2rem;
   border-bottom: 0.2rem dashed transparent;
   transition: 500ms;
+  margin: 2rem;
 }
-nav ul li:hover {
+nav ul li a:hover {
   border-bottom: 0.2rem solid var(--main-accent);
   cursor: pointer;
   transition: 200ms;
 }
 .social-icons {
   grid-area: social;
-  height: 2rem;
   display: flex;
+  color: var(--main-gray);
+  padding-right: 2.1rem;
+}
+.social-icons ul {
+  display: flex;
+  justify-content: center;
 }
 .social-icons li {
   list-style: none;
+  animation: popping 2s infinite ease-out;
+}
+.social-icons a {
+  padding: 0.8rem;
+  transition: 200ms;
+}
+.social-icons a:hover {
+  transition: 200ms;
+}
+.social-icons ul li:hover {
+  color: var(--main-accent);
 }
 aside {
   background-color: lightgray;
@@ -108,15 +152,17 @@ aside ul li {
   text-align: left;
   padding-left: 1rem;
 }
-aside ul li:hover {
-  border-left: 0.2rem solid gray;
+aside a {
+  padding: 0 0 0 1rem;
+}
+aside ul a:hover {
+  border-left: 0.2rem solid var(--main-accent);
   cursor: pointer;
 }
 main {
   grid-area: main;
   background-color: lightgray;
-  /* display: flex; */
-  align-content:space-between;
+  align-content: space-between;
   text-align: center;
   display: inline-flex;
   flex-wrap: wrap;
@@ -124,10 +170,9 @@ main {
 main article {
   padding: 0.7rem;
   background-color:rgb(243, 243, 243);
-  width:43.5%;
-  padding: 1rem;
+  width:45.7%;
   text-align: left;
-  border: 0.8rem solid lightgray;
+  border: 0.7rem solid lightgray;
 }
 main article p {
   column-count: 2;
@@ -141,15 +186,17 @@ main figure {
   position: relative;
 }
 main figure img {
-  background-size:auto;
+  object-fit: cover;
   width: 100%;
+  max-height: 12.5rem;
 }
 main figcaption {
   font-size: 0.8rem;
   color: rgb(238, 238, 129);
   position: relative;
   top: -1.5rem;
-  left: 0.2rem;
+  height: 0;
+  left: 0.3rem;
 }
 main article h2 {
   text-transform: uppercase;
@@ -166,7 +213,6 @@ main article h2 {
   background-color: var(--main-accent);
 }
 main p {
-  /* padding: 0.7rem; */
   width: 100%;
   text-align: left;
 }
@@ -176,21 +222,21 @@ main h5 {
 }
 footer {
   grid-area: footer;
-  padding: 1rem;
+  padding: 0.7rem;
   font-size: 1rem;
-  border-left: 0.8rem solid var(--main-clear);
-  border-right: 0.8rem solid var(--main-clear);
+  border-left: 0.7rem solid var(--main-clear);
+  border-right: 0.7rem solid var(--main-clear);
   background-color: var(--main-clearest);
 }
 
 /* Mobile */
-/*
 @media screen and (max-width:480px) {
+  html:before {
+    position:inherit;
+  }
   html {
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
-    justify-content: center;
+    width:100%;
+    max-width: 480px;
   }
   html div {
     display: grid;
@@ -203,32 +249,63 @@ footer {
     grid-template-rows: auto;
     gap: 0.5rem;
   }
-  header {
+  .header {
     display: block;
-  }      
-  #logo {
-    width: 5rem;
-    float: none;
+    padding: 0;
+    text-align: center;
   }
-  input {
-    width: 100%;
-    margin: 1rem auto;
-    padding: 0.5rem;
-  }
-  nav {
-    width: 100%;
-  }
-  main p {
-    width: 100%;
+  .social-icons {
     padding: 0;
   }
+  .social-icons ul {
+    align-items: center;
+    width: 5rem;
+    margin: 0 auto;
+    padding: 0;
+  }
+  header {
+    width: 100%;
+    display:block;    
+    text-align: center;
+    background-size:480%;
+    background-position:50% 37%;
+  }
+  header h1 {
+   font-size: 1.5rem;
+   padding: 0.6rem 1rem 0rem 1rem; 
+  }
+  .jumbo {
+    width: 18rem;
+    margin: 6rem auto 0rem auto;
+    padding: 0;
+  }
+  #logo {
+    width: 5rem;
+    margin: 0 auto;
+    padding: 0;
+  }
+  nav ul {
+    text-align: center;
+    display:block;
+  }
+  nav li {
+    margin: 1rem 0;
+  }
+  nav ul li a {
+    padding: 0.5rem;
+    margin: 0 4%;
+  }
+  main article {
+    width:100%;
+  }
 }
-*/
+
 /* Tablet */
-/*
-@media screen and (min-width:481px) and (max-width: 768px) {
+@media screen and (min-width:481px) and (max-width: 1200px) {
   html {
-    max-width: 760px;
+    max-width: 1200px;
+    min-width: 481px;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     justify-content: center;
@@ -244,11 +321,57 @@ footer {
     grid-template-rows: auto;
     gap: 0.7rem;
   }
-  #logo {
-    width: 7.5rem;
+  html:before {
+    position:inherit;
   }
-  header input {
-    width: 6rem;
+  .header {
+    display: block;
+    padding: 0;
+    text-align: center;
+  }
+  .social-icons {
+    padding: 0;
+  }
+  .social-icons ul {
+    align-items: center;
+    width: 5rem;
+    margin: 0 auto;
+    padding: 0;
+  }
+  header {
+    width: 100%;
+    display:block;    
+    text-align: center;
+    background-size:300%;
+    background-position:50% 48%;
+  }
+  header h1 {
+   font-size: 1.5rem;
+   padding: 1.8rem 1rem 0rem 1rem; 
+  }
+  .jumbo {
+    width: 70%;
+    margin: 9rem auto 0rem auto;
+    padding: 0 2rem;
+  }
+  #logo {
+    width: 5rem;
+    margin: 0 auto;
+    padding: 0;
+  }
+  nav ul {
+    text-align: center;
+    justify-content: space-evenly;
+  }
+  nav ul li a {
+    padding: 0rem;
+  }
+  main {
+    flex: 42% 42%;
+    justify-content:space-evenly;
+  }
+  main article {
+    margin: 0 auto;
+    width:40%;    
   }
 }
-*/
